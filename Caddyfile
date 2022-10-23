@@ -1,0 +1,3 @@
+http://10.0.0.6:2019 {
+    respond "hello from Caddy Server!"
+}
