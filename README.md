@@ -1,6 +1,7 @@
 #### 交叉编译
 https://www.cnblogs.com/jing332/p/16671425.html
 
+Settings -> Go -> GoModules -> Environment
 1. CC=C:\Users\zhoubing\AppData\Local\Android\Sdk\ndk\21.0.6113669\toolchains\llvm\prebuilt\windows-x86_64\bin\armv7a-linux-androideabi29-clang.cmd;
 2. GOPROXY=https://goproxy.cn,direct;
 3. GOOS=android;
