@@ -56,3 +56,9 @@ https://www.cnblogs.com/bcfx/articles/2914687.html
 https://blog.csdn.net/weixin_39600704/article/details/117501474
 https://blog.csdn.net/weixin_39845825/article/details/117493152
 https://www.cnblogs.com/ljf181275034/articles/3319420.html
+
+
+#### Read Write File
+https://www.jianshu.com/p/247b69e7c0dd
+
+
