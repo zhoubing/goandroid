@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	c := &serial.Config{Name: "/dev/ttyS3", Baud: 115200}
+	c := &serial.Config{Name: "/dev/iio:device0", Baud: 115200}
 	s, err := serial.OpenPort(c)
 	if err != nil {
 		log.Fatal(err)
