@@ -3,10 +3,13 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/jlaffaye/ftp"
 	"goftp.io/server/core"
 	"goftp.io/server/driver/file"
 	"log"
 	"net"
+	"os"
+	"time"
 )
 
 type Result1 struct {
@@ -119,5 +122,27 @@ func (n Notification) AfterFilePut(conn *core.Conn, dstPath string, size int64, 
 	if err != nil {
 		fmt.Println("json err: ", err)
 		return
+	}
+
+	c, err := ftp.Dial("192.168.0.108:21", ftp.DialWithTimeout(5*time.Second))
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = c.Login("root", "root")
+	if err != nil {
+		log.Fatal(err)
+	}
+	// Do something with the FTP conn
+	file, err := os.Open(dstPath)
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+	err = c.Stor("test-file.txt", file)
+	if err != nil {
+		panic(err)
+	}
+	if err := c.Quit(); err != nil {
+		log.Fatal(err)
 	}
 }

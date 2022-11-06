@@ -56,3 +56,7 @@ https://www.cnblogs.com/bcfx/articles/2914687.html
 https://blog.csdn.net/weixin_39600704/article/details/117501474
 https://blog.csdn.net/weixin_39845825/article/details/117493152
 https://www.cnblogs.com/ljf181275034/articles/3319420.html
+
+
+https://stackoverflow.com/questions/14750459/change-the-permissions-and-ownership-of-tty-port-in-android-programmatically
+
