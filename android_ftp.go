@@ -1,13 +1,13 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/jlaffaye/ftp"
 	"goftp.io/server/core"
 	"goftp.io/server/driver/file"
 	"log"
-	"net"
+	"os"
+	"path/filepath"
 	"time"
 )
 
@@ -102,26 +102,26 @@ func (n Notification) AfterDirDeleted(conn *core.Conn, dstPath string, err error
 
 func (n Notification) AfterFilePut(conn *core.Conn, dstPath string, size int64, err error) {
 	fmt.Println("AfterFilePut")
-	con, err := net.Dial("tcp4", "127.0.0.1:26001")
-	if err != nil {
-		fmt.Println("net dial err: ", err)
-		return
-	}
-	defer con.Close()
-	var res Result1
-	res.Code = 1
-	res.Message = "文件传输完成"
-
-	data, err := json.Marshal(res)
-	if err != nil {
-		fmt.Println("json err: ", err)
-		return
-	}
-	_, err = con.Write(data)
-	if err != nil {
-		fmt.Println("json err: ", err)
-		return
-	}
+	//con, err := net.Dial("tcp4", "127.0.0.1:26001")
+	//if err != nil {
+	//	fmt.Println("net dial err: ", err)
+	//	return
+	//}
+	//defer con.Close()
+	//var res Result1
+	//res.Code = 1
+	//res.Message = "文件传输完成"
+	//
+	//data, err := json.Marshal(res)
+	//if err != nil {
+	//	fmt.Println("json err: ", err)
+	//	return
+	//}
+	//_, err = con.Write(data)
+	//if err != nil {
+	//	fmt.Println("json err: ", err)
+	//	return
+	//}
 
 	c, err := ftp.Dial("10.0.0.3:21", ftp.DialWithTimeout(5*time.Second))
 	if err != nil {
@@ -131,6 +131,20 @@ func (n Notification) AfterFilePut(conn *core.Conn, dstPath string, size int64, 
 	error := c.Login("root", "root")
 	if error != nil {
 		fmt.Println("ftp.Dial: ", error)
+		return
+	}
+
+	fmt.Println("os.Open: ", dstPath)
+	open, err := os.Open("./static" + dstPath)
+	if err != nil {
+		fmt.Println("os.Open: ", error)
+		return
+	}
+	fmt.Println(open.Name())
+	_, f := filepath.Split(open.Name())
+	err1 := c.Stor(f, open)
+	if err1 != nil {
+		fmt.Println(err1)
 		return
 	}
 }
