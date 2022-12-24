@@ -1,5 +1,10 @@
+### Windows下使用Idea配置WSL中的Go环境要点
+正常创建Windows项目，然后在Edit Configurations中选择Go build，在Run on中选择或者新建配置好的WSL环境(WSL环境中已经配置好Go环境)，即可使用此环境构建工程
+
+
 #### 交叉编译
 https://www.cnblogs.com/jing332/p/16671425.html
+https://www.cnblogs.com/develon/p/16464371.html
 
 Settings -> Go -> GoModules -> Environment
 1. CC=C:\Users\zhoubing\AppData\Local\Android\Sdk\ndk\21.0.6113669\toolchains\llvm\prebuilt\windows-x86_64\bin\armv7a-linux-androideabi29-clang.cmd;
@@ -68,7 +73,3 @@ https://stackoverflow.com/questions/14750459/change-the-permissions-and-ownershi
 
 #### goroutine pool
 https://github.com/panjf2000/ants/blob/master/README_ZH.md
-
-
-### Windows下使用Idea配置WSL中的Go环境要点
-正常创建Windows项目，然后在Edit Configurations中选择Go build，在Run on中选择或者新建配置好的WSL环境(WSL环境中已经配置好Go环境)，即可使用此环境构建工程
