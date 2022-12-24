@@ -17,6 +17,10 @@ Settings -> Go -> GoModules -> Environment
 #### 七牛云
 https://goproxy.cn/
 
+#### goland配合wsl2直接调用wsl2里go环境的方法
+https://zhuanlan.zhihu.com/p/378437571
+
+
 #### 串口
 https://www.jianshu.com/p/bfda4c8fb09d
 
