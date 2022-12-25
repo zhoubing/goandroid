@@ -1,3 +1,7 @@
+#### 设置Android NDK编译环境
+source env.sh
+
+
 ### Windows下使用Idea配置WSL中的Go环境要点
 正常创建Windows项目，然后在Edit Configurations中选择Go build，在Run on中选择或者新建配置好的WSL环境(WSL环境中已经配置好Go环境)，即可使用此环境构建工程
 
